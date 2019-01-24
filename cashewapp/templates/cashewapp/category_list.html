@@ -1,0 +1,14 @@
+{% extends "cashewapp/base.html" %}
+
+{% block content %}
+
+<div>
+    <a href="{% url 'category_create' %}" class="fm-create btn btn-primary" data-fm-head="Creating category" data-fm-callback="reload">Create new</a>
+</div>
+
+
+    {% for object in category_list %}     
+        {{object}}         
+    {% endfor %}  
+
+{% endblock %}

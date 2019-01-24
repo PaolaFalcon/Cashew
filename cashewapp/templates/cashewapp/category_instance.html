@@ -1,0 +1,5 @@
+<li class="node" id="node-{{ node.pk }}">
+    <a href="{% url 'category_update' pk=node.pk %}" class="fm-update" data-fm-head="Update"  data-fm-callback="replace" data-fm-target="#node-{{ node.pk }}">E</a>
+    <a href="{% url 'category_delete' pk=node.pk %}" class="fm-delete" data-fm-head="Delete this category?" data-fm-callback="remove" data-fm-target="#node-{{ node.pk }}">D</a>
+    {{ node }}
+</li>

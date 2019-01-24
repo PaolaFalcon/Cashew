@@ -1,0 +1,31 @@
+<tr class="object transaction_row" id="object-{{ object.pk }}">
+    <td>
+    	<a href="{% url 'transaction_update' pk=object.pk %}" class="fm-update" data-fm-head="Update"  data-fm-callback="replace" data-fm-target="#object-{{ object.pk }}">
+            E
+       </a>
+       <a href="{% url 'transaction_delete' pk=object.pk %}" class="fm-delete" data-fm-head="Delete this transaction?" data-fm-callback="remove" data-fm-target="#object-{{ object.pk }}">D</a>
+    </td>
+    <td>
+        {{ object.date }}
+    </td>
+    <td>
+        {{ object.category }}
+    </td>
+    <td>
+        {{ object.account }}
+    </td>
+    <td class="{% if object.amount < 0 %}negative_amount{% else %}positive_amount{% endif %} amount">
+        {{ object.formatted_amount }}
+    </td>
+    <td>
+        {% if object.note %}
+        <strong>Note: </strong>
+        {{ object.note}}
+        <br/>
+        {% endif %}
+        {% if object.keywords %}
+        <strong class="small">Keywords: </strong>
+        <span class="small">{{ object.keywords }}</span>
+        {% endif %}
+    </td>
+</tr>

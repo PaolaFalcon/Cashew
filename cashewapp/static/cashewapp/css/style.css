@@ -1,0 +1,100 @@
+body{
+    font-family: 'Ubuntu Mono', ;
+}
+
+.main_menu {
+    background-color: #98bf21;
+}
+
+.main_menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.main_menu li {
+    float: left;
+}
+
+.main_menu a:link, a:visited {
+    display: block;
+    width: 120px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 4px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.main_menu a:hover, a:active {
+    background-color: #7A991A;
+}
+
+.summary{
+    margin: auto;
+    max-width: 300px;
+    padding:5px;
+    width: 100%;
+}
+
+.summary tr:nth-child(odd) td {
+  background:#EBEBEB;
+}
+
+.summary td {
+  padding:10px;
+  vertical-align:middle;
+}
+
+.summary th{
+    padding:10px;
+    vertical-align:middle;
+}
+
+.balance_row{
+
+}
+
+.amount{
+    font-family: 'Consolas';
+    text-align: right;
+    white-space: nowrap;
+}
+
+.positive_amount{
+    color:green;
+}
+
+.negative_amount{
+    color:red;
+}
+
+.ignore_debt{
+    opacity:0.5;
+    filter:alpha(opacity=50); /* For IE8 and earlier */
+}
+
+.transaction_row {
+    background: #f5f5f5;
+    background-image: -webkit-linear-gradient(top, #f5f5f5, #d6d6d6);
+    background-image: -moz-linear-gradient(top, #f5f5f5, #d6d6d6);
+    background-image: -ms-linear-gradient(top, #f5f5f5, #d6d6d6);
+    background-image: -o-linear-gradient(top, #f5f5f5, #d6d6d6);
+    background-image: linear-gradient(to bottom, #f5f5f5, #d6d6d6);
+    -webkit-border-radius: 5;
+    -moz-border-radius: 5;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 2px #666666;
+    -moz-box-shadow: 0px 0px 2px #666666;
+    box-shadow: 0px 0px 2px #666666;
+    font-family: Arial;
+    color: #333333;
+    padding: 10px 20px 10px 20px;
+    border-top: solid #ffffff 1px;
+    border-right: solid #ffffff 1px;
+    border-bottom: solid #a1a1a1 1px;
+    border-left: solid #e6e6e6 1px;
+    text-decoration: none;
+}

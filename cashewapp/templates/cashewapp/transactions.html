@@ -1,0 +1,55 @@
+{% extends "cashewapp/base.html" %}
+
+{% block content %}
+
+<div>
+    <a href="{% url 'transaction_create' %}" class="fm-create btn btn-primary" data-fm-head="New transaction" data-fm-callback="reload">Add new transaction</a>
+</div>
+
+<h1>Transactions</h1>
+
+<form action="#" method="get">
+    <table class="Filter">
+        <tr>
+            <td>
+                <select id="accounts" name="accounts">
+                    <option value="0">-- All --</option>
+                    {% for account in accounts %}
+                    <option value="{{ account.id }}" {% if account.id == f_account %}selected{% endif %}>{{ account }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+            <td>
+                <select id="categories" name="categories">
+                    <option value="0">-- All --</option>
+                    {% for category in categories %}
+                    <option value="{{ category.id }}" {% if category.id == f_category %}selected{% endif %} >{{ category }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+            <td>
+                <input class="datepicker" id="id_start_date" name="start_date" type="text" value="{{ f_start_date }}">
+            </td>
+            <td>
+                <input class="datepicker" id="id_end_date" name="end_date" type="text" value="{{ f_end_date }}">
+            </td>
+            <td><input type="submit" class="btn" value="Filter" name="btn_filter"></td>
+        </tr>
+    </table>
+</form>
+
+<table class="table">
+<tr>
+    <th></th>
+    <th>Date</th>
+    <th>Category</th>
+    <th>Account</th>
+    <th>Amount</th>
+    <th></th>
+</tr>
+    {% for object in object_list %}
+        {% include 'cashewapp/transaction_instance.html' %}
+    {% endfor %}
+</table>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "cashewapp/base.html" %}
+{% load bootstrap3 %}
+
+{% block content %}
+<h1>{{ category.name }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+
+<form action="{% url 'EditTest' category.id %}" method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons %}
+    <input type="submit" value="Change" />
+    {% endbuttons %}
+</form>
+
+
+{% endblock %}
+
+
+

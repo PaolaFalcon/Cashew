@@ -1,0 +1,22 @@
+{% extends "cashewapp/base.html" %}
+{% load mptt_tags %}
+{% block content %}
+
+<div>
+    <a href="{% url 'category_create' %}" class="fm-create btn btn-primary" data-fm-head="Creating category" data-fm-callback="reload">Create new</a>
+</div>
+
+<section>
+    <h1>Categories</h1>
+
+    <ul>
+    {% recursetree object_list %}
+        {% include 'cashewapp/category_instance.html' %}
+        {% if not node.is_leaf_node %}
+            <ul class="children">
+            {{ children }}
+            </ul>
+        {% endif %}
+    {% endrecursetree %}
+</ul>
+{% endblock %}

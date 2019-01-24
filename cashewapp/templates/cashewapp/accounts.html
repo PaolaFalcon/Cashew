@@ -1,0 +1,15 @@
+{% extends "cashewapp/base.html" %}
+
+{% block content %}
+
+<div>
+    <a href="{% url 'account_create' %}" class="fm-create btn btn-primary" data-fm-head="New account" data-fm-callback="reload">Add new account</a>
+</div>
+
+<h1>Accounts</h1>
+
+{% for object in object_list %}
+    {% include 'cashewapp/account_instance.html' %}
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,5 @@
+<div class="object" id="object-{{ object.pk }}">
+    <a href="{% url 'account_update' pk=object.pk %}" class="fm-update" data-fm-head="Update"  data-fm-callback="replace" data-fm-target="#object-{{ object.pk }}">E</a>
+    <a href="{% url 'account_delete' pk=object.pk %}" class="fm-delete" data-fm-head="Delete this category?" data-fm-callback="remove" data-fm-target="#object-{{ object.pk }}">D</a>
+    {{ object }}
+</div>

@@ -1,0 +1,47 @@
+{% load staticfiles %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'cashewapp/js/jquery.form.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'cashewapp/js/jquery-ui.js' %}"></script>
+    {% load bootstrap3 %}
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="{% static 'cashewapp/css/style.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'cashewapp/css/jquery-ui.css' %}" />
+    {# Load CSS and JavaScript #}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <title>{% block title %}Cashew{% endblock %}</title>
+</head>
+
+<body>
+    <div id="sidebar" class="main_menu">
+        {% block sidebar %}
+        <ul>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'categories' %}">Categories</a></li>
+            <li><a href="{% url 'accounts' %}">Accounts</a></li>
+            <li><a href="{% url 'transactions' %}">Transactions</a></li>
+        </ul>
+        {% endblock %}
+    </div>
+
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+    {% include "fm/modal.html" %}
+    <script type="text/javascript">
+        $(function() {
+            $.fm({debug: true});
+            jQuery('.datepicker').datepicker({ dateFormat: 'yy-mm-dd' });
+        });
+
+        $( "body" ).on( "fm.ready", function( event ) {
+            jQuery('.datepicker').datepicker({ dateFormat: 'yy-mm-dd' });
+        });
+    </script>
+</body>
+</html>
